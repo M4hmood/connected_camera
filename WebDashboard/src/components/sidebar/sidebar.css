@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+
+.sidebar_container {
+    width: 250px;
+    background-color: rgb(1 17 23);
+}
+
+.sidebar_list {
+    height: auto;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar_list .row {
+    width: 100%;
+    height: 90px;
+    list-style-type: none;
+    margin: 0%;
+    display: flex;
+    flex-direction: row;
+    color: aquamarine;
+    justify-content: center;
+    align-items: center;
+    font-family: "Jersey 15", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: large;
+}
+
+.sidebar_list .row:hover {
+    cursor: pointer;
+    background-color: rgb(15 48 61);
+}
+
+.sidebar_list #active {
+    background-color: rgb(15 48 61);
+}
+
+.row #icon {
+    flex: 30%;
+    display: grid;
+    place-items: center;
+}
+
+.row #title {
+    flex: 70%;
+}
