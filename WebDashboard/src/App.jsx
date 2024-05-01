@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 import Footer from './components/footer/footer'; 
 import Dashboard from './components/dashboard/dashboard';
+import Home from './components/home/home';
 
 function App() {
 
@@ -10,7 +11,8 @@ function App() {
       <h1>ESP32-cam dashboard</h1>
       <BrowserRouter>
         <Routes>
-          <Route path="/home" exact element={<Dashboard/>} />
+          <Route path="/" exact element={<Home/>} />
+          <Route path="/home" exact element={<Home/>} />
           <Route path="/dashboard" exact element={<Dashboard/>} />
           <Route path="/notifications" exact element={<Dashboard/>} />
           <Route path="/profile" exact element={<Dashboard/>} />

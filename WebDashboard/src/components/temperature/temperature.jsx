@@ -7,7 +7,13 @@ export default function Temperature() {
     const [pointerValue, setPointerValue ] = useState(0);
 
     useEffect(() => {
-        const client = mqtt.connect('mqtt://127.0.0.1:1883');
+        const brokerUrl = "wss://3efe6d8d8deb46a79cf3fced831f468b.s1.eu.hivemq.cloud:8884/mqtt";
+        const options = {
+            clientId: `mqttjs_${Math.random().toString(16).substr(2, 8)}`,
+            username: 'M4hmoud',
+            password: 'Boumaiza03',
+        };
+        const client = mqtt.connect(brokerUrl, options);
 
         client.on('connect', function () {
             console.log('Connected to MQTT broker');
@@ -16,8 +22,8 @@ export default function Temperature() {
 
         client.on('message', function (topic, message) {
             console.log(`Received message on topic ${topic}: ${message.toString()}`);
+            console.log(message);
             if (topic === 'temperature') {
-                // Update humidity state when receiving a message for humidity
                 setPointerValue(parseFloat(message.toString()));
             }
         });
@@ -34,9 +40,10 @@ export default function Temperature() {
                     <PointerDirective value={pointerValue} style={{transition: "transform 0.5s ease"}} ></PointerDirective>
                 </PointersDirective>
                 <RangesDirective>
-                    <RangeDirective start={50} end={80}></RangeDirective>
-                    <RangeDirective start={30} end={50}></RangeDirective>
-                    <RangeDirective start={0} end={30}></RangeDirective> 
+                    <RangeDirective start={70} end={100}></RangeDirective>
+                    <RangeDirective start={40} end={70}></RangeDirective>
+                    <RangeDirective start={20} end={40}></RangeDirective>
+                    <RangeDirective start={0} end={20}></RangeDirective> 
                 </RangesDirective>
             </AxisDirective>
         </AxesDirective>

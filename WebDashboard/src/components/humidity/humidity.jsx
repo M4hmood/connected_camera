@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import mqtt from 'mqtt';
+
+
 import GaugeComponent from 'react-gauge-component';
 
 export default function Humidity() {
     const [humidity, setHumidity] = useState(0);
     
     useEffect(() => {
-        const client = mqtt.connect('mqtt://127.0.0.1:1883');
+        const brokerUrl = "wss://3efe6d8d8deb46a79cf3fced831f468b.s1.eu.hivemq.cloud:8884/mqtt";
+        const options = {
+            clientId: `mqttjs_${Math.random().toString(16).substr(2, 8)}`,
+            username: 'M4hmoud',
+            password: 'Boumaiza03',
+        };
+        const client = mqtt.connect(brokerUrl, options);
 
         client.on('connect', function () {
             console.log('Connected to MQTT broker');

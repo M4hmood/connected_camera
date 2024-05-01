@@ -39,7 +39,7 @@ export default function Navbar() {
       <ul className='sidebar_list'>
         {sideBarData.map((val, key) => {
           return (
-          <li 
+          <li
             key={key} 
             className='row' 
             id={window.location.pathname === val.link ? "active": ""} 

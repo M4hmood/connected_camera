@@ -44,4 +44,5 @@
 
 .row #title {
     flex: 70%;
+    font-size: 25px;
 }

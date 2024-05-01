@@ -7,7 +7,13 @@ const Motion = () => {
     const [motionDetected, setMotionDetected] = useState(false);
 
     useEffect(() => {
-        const client = mqtt.connect('mqtt://127.0.0.1:1883');
+        const brokerUrl = "wss://3efe6d8d8deb46a79cf3fced831f468b.s1.eu.hivemq.cloud:8884/mqtt";
+        const options = {
+            clientId: `mqttjs_${Math.random().toString(16).substr(2, 8)}`, //unique client ID
+            username: 'M4hmoud',
+            password: 'Boumaiza03',
+        };
+        const client = mqtt.connect(brokerUrl, options);
 
         client.on('connect', function () {
             console.log('Connected to MQTT broker');
@@ -30,9 +36,9 @@ const Motion = () => {
     return (
         <div style={{display: 'flex', 'flex-direction': 'column', 'align-items': 'center', width: '300px'}}>
           <h2 style={{'font-size': '30px'}}>Motion detection</h2>
-          <div style={{display: 'flex', width: '300px', 'justify-content': 'space-evenly', 'align-items': 'center'}}>
+          <div style={{display: 'flex', width: '300px', 'justify-content': 'space-evenly', 'align-items': 'flex-start'}}>
             <p style={{ fontSize: '20px', color: motionDetected ? 'blue': 'gray'}}>{motionDetected ? 'Motion Detected' : 'No Motion Detected'}</p>
-            {motionDetected ? <DirectionsRunIcon style={{color: 'blue'}}/> : <AccessibilityIcon style={{color: 'red'}}/>}
+            {motionDetected ? <DirectionsRunIcon style={{color: 'aquamarine'}}/> : <AccessibilityIcon style={{color: 'aquamarine'}}/>}
           </div>
         </div>
     );

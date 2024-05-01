@@ -11,7 +11,13 @@ export default function Flame() {
   const [alarmActive, setAlarmActive] = useState(false);
 
   useEffect(() => {
-      const client = mqtt.connect('mqtt://127.0.0.1:1883');
+    const brokerUrl = "wss://3efe6d8d8deb46a79cf3fced831f468b.s1.eu.hivemq.cloud:8884/mqtt";
+      const options = {
+        clientId: `mqttjs_${Math.random().toString(16).substr(2, 8)}`, // unique client ID
+        username: 'M4hmoud',
+        password: 'Boumaiza03',
+      };
+      const client = mqtt.connect(brokerUrl, options);
 
       client.on('connect', function () {
           console.log('Connected to MQTT broker');
@@ -22,18 +28,19 @@ export default function Flame() {
       client.on('message', function (topic, message) {
         console.log(`Received message on topic ${topic}: ${message.toString()}`);
         if (topic === 'flame') {
-            if (message.toString() === 'detected') {
-                setFlameDetected(true);
-                setAlarmActive(true);
+            if (message.toString() === '1') {
+              console.log("yes");
+              setFlameDetected(true);
+              setAlarmActive(true);
             } else {
-                setFlameDetected(false);
+              setFlameDetected(false);
             }
         } else if (topic === 'fluid') {
-            if (message.toString() === 'detected') {
-                setFluidDetected(true);
-                setAlarmActive(true);
+            if (message.toString() === '1') {
+              setFluidDetected(true);
+              setAlarmActive(true);
             } else {
-                setFluidDetected(false);
+              setFluidDetected(false);
             }
         }
 
