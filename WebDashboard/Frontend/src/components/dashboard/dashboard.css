@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+h1, h2 {
+    text-align: center;
+    font-family: "Jersey 15", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: aquamarine;
+}
+
+h1 {
+    font-size: 55px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+p {
+    text-align: center;
+    font-family: "Jersey 15", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+text {
+    text-align: center;
+    font-family: "Jersey 15", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#lineargauge_control_1_AxisIndex_0_MarkerPointer_0 {
+    fill: aquamarine;
+}
+
+.dashboard {
+    flex: 10;
+    display: flex;
+    justify-content: space-around;
+    justify-items: center;
+    align-items: center;
+}
+
+.right {
+    flex: 3;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.left {
+    flex: 2.3;
+    display: grid;
+    grid-template-areas: 
+        'temperature humidity'
+        'temperature motion'
+        'ff ff';
+    gap: 10px;
+    padding: 10px;
+    padding-top: 0px;
+    align-items: center;
+    justify-items: center;
+}
+
+.temperature_container { grid-area: temperature; }
+.humidity_container { grid-area: humidity; }
+.motion_container { grid-area: motion; }
+.ff_container { grid-area: ff; }
+
+.temperature_container, .humidity_container, .ff_container, .motion_container {
+    height: 120px;
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    background-color: rgb(1 17 23);
+    border-radius: 20px;
+    align-items: center;
+    align-content: center;
+}
+
+.temperature_container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.temperature_gauge {
+    height: 300px;
+    width: 120px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.temperature_gauge svg, rect{
+    height: inherit;
+    width: 100%;
+    fill: rgb(1 17 23);
+
+}
+
+.humidity_container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.motion_container {
+    display: flex;
+    justify-content: space-evenly;
+    height: fit-content;
+}
+
+.motion_container svg {
+    font-size: 3rem;
+}
+
+.data {
+    width: 350px;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
