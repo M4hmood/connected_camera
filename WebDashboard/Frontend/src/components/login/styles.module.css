@@ -85,7 +85,7 @@ p {
     color: blanchedalmond;
 }
 
-input[name="password"] {
+.login_container .input[name="password"] {
     width: 160px;
 }
 
