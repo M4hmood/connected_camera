@@ -5,5 +5,5 @@
 Clone the repository:
 
 ```bash
-git clone https://github.com/Mohamed-Adam-Jemal/Connected_Camera.git
+git clone https://github.com/M4hmood/Connected_Camera.git
 ```
