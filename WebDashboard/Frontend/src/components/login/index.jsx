@@ -4,7 +4,7 @@ import axios from 'axios';
 import styles from './styles.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { faGoogle, faApple } from '@fortawesome/free-brands-svg-icons';
+import { faGoogle, faApple, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 export default function Login() {
   const [data, setData] = useState({
@@ -69,9 +69,10 @@ export default function Login() {
             <button type="button" className={styles.white_btn}>Sign up</button>
           </Link>
           <p>or continue with</p>
-          <div class={styles.inline} >
-            <FontAwesomeIcon icon={faGoogle} className={styles.icon}/>
-            <FontAwesomeIcon icon={faApple} className={styles.icon}/>
+          <div>
+            <FontAwesomeIcon icon={faGoogle} className={styles.brandIcon} />
+            <FontAwesomeIcon icon={faApple} className={styles.brandIcon} />
+            <FontAwesomeIcon icon={faGithub} className={styles.brandIcon}/>
           </div>
         </div>
       </div>

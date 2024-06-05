@@ -27,7 +27,7 @@ const validate = (data) => {
         username: joi.string().alphanum().min(5).max(15).required().label("Username"),
         email: joi.string().email().required().label("Email"),
         password: passwordComplexity().required().label("Password"),
-        //repeat_password: joi.ref('password').label("repeat Password"),
+        //confirmPassword: joi.ref('password').label("confirm Password"),
         birthdate: joi.date().raw().required().label("Birthdate"),
         gender: joi.string().valid('male', 'female', 'non-binary').required().label("Gender"),
     });

@@ -6,7 +6,7 @@ exports.signup = async (req, res) => {
         const {error} = validate(req.body);
         if (error)
             return res.status(400).send({ message: error.details[0].message});
-        const exists = User.findOne({ email: req.body.email });
+        const exists = await User.findOne({ email: req.body.email });
         if (exists)
             return res.status(409).send({ message: "email already signed up to another account"});
         const salt = await bcrypt.genSalt(Number(process.env.SALT));

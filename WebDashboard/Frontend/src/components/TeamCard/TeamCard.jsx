@@ -6,7 +6,7 @@ import './TeamCard.css';
 
 export default function TeamCard({imgSrc, title, subtitle, description, footer }) {
     return (
-        <div class="box card">
+        <div className="box card">
            <img alt="profile" src={imgSrc}/>
             <h2 >{title}</h2>
             <h4>{subtitle}</h4>

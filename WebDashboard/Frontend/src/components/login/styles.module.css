@@ -86,7 +86,7 @@ p {
 }
 
 .login_container .input[name="password"] {
-    width: 160px;
+    width: 155px;
 }
 
 hr {
@@ -143,13 +143,19 @@ button:hover {
     background-color: rgba(0, 0, 0, 40%);
 }
 
-.inline {
-    display: flex;
-    justify-content: space-evenly;
-    width: 250px;
-}
-
 .passwordVisibility {
     color: blanchedalmond;
     margin-right: 30px;
+}
+
+.brandIcon {
+    color: white;
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.brandIcon:hover {
+    color: aquamarine;
 }

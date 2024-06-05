@@ -20,7 +20,10 @@ export default function Signup() {
   const navigate = useNavigate();
 
   const handleChange = ({ currentTarget: input}) => {
-    setData({...data, [input.name]: input.value });
+    setData({
+      ...data,
+      [input.name]: input.value
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -64,9 +67,9 @@ export default function Signup() {
             <input type="date" placeholder="Birthdate" name="birthdate" value={data.birthdate} onChange={handleChange} className={styles.input} required/>
             <hr />
             <div className={styles.gender}>
-                <label for="male"><input id="male" name="gender" type="radio" class="inline" value="male" /> Male</label>
-                <label for="female"><input id="female" name="gender" type="radio" class="inline" value="female" /> Female</label>
-                <label for="other"><input id="other" name="gender" type="radio" class="inline" value="other" /> Non-binary</label>
+                <label htmlFor="male"><input id="male" name="gender" type="radio" value="male" onChange={handleChange} /> Male</label>
+                <label htmlFor="female"><input id="female" name="gender" type="radio" value="female" onChange={handleChange} /> Female</label>
+                <label htmlFor="non-binary"><input id="other" name="gender" type="radio" value="non-binary" onChange={handleChange} /> Non-binary</label>
             </div>
             {error && <div className={styles.error_msg}>{error}</div>}
             <button type='submit' className={styles.green_btn}>Sign up</button>
