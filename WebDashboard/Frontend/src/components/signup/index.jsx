@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from './styles.module.css';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 export default function Signup() {
   const [data, setData] = useState({
@@ -38,7 +39,13 @@ export default function Signup() {
         setError(error.response.data.message);
       }
     }
-  }
+  };
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisiblity = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <div className={styles.signup_container}>
@@ -63,6 +70,7 @@ export default function Signup() {
             <input type="email" placeholder="Email" name="email" value={data.email} onChange={handleChange} className={styles.input} required/>
             <hr />
             <input type="password" placeholder="Password" name="password" value={data.password} onChange={handleChange} className={styles.input} required/>
+            <FontAwesomeIcon icon={showPassword ? faEyeSlash: faEye} className={styles.passwordVisibility} onClick={togglePasswordVisiblity}/>
             <hr />
             <input type="date" placeholder="Birthdate" name="birthdate" value={data.birthdate} onChange={handleChange} className={styles.input} required/>
             <hr />

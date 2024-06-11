@@ -12,18 +12,12 @@ export default function Login() {
     password: ""
   });
 
-  const [showPassword, setShowPassword] = useState(false);
-
-  const togglePaddwordVisiblity = () => {
-    setShowPassword(!showPassword);
-  }
-
   const [error, setError] = useState();
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -37,6 +31,12 @@ export default function Login() {
         setError(error.response.data.message);
       }
     }
+  };
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisiblity = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -53,7 +53,7 @@ export default function Login() {
             <div className={styles.inputConatiner}>
               <FontAwesomeIcon icon={faLock} className={styles.icon} />
               <input type={showPassword ? "text" : "password"} placeholder="Password" name="password" value={data.password} onChange={handleChange} className={styles.input} required/>
-              <FontAwesomeIcon icon={showPassword ? faEyeSlash: faEye} className={styles.passwordVisibility} onClick={togglePaddwordVisiblity}/>
+              <FontAwesomeIcon icon={showPassword ? faEyeSlash: faEye} className={styles.passwordVisibility} onClick={togglePasswordVisiblity}/>
               <hr />
             </div>
             {error && <div className={styles.error_msg}>{error}</div>}
