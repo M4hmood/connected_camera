@@ -45,20 +45,22 @@ export default function Login() {
         <div className={styles.left}>
           <form className={styles.form_container} onSubmit={handleSubmit}>
             <h1>Login</h1>
-            <div className={styles.inputContainer}>
-              <FontAwesomeIcon icon={faUser} className={styles.icon} />
-              <input type="text" placeholder="Username" name="username" value={data.username} onChange={handleChange} className={styles.input} required/>
-              <hr />
-            </div>
-            <div className={styles.inputConatiner}>
-              <FontAwesomeIcon icon={faLock} className={styles.icon} />
-              <input type={showPassword ? "text" : "password"} placeholder="Password" name="password" value={data.password} onChange={handleChange} className={styles.input} required/>
-              <FontAwesomeIcon icon={showPassword ? faEyeSlash: faEye} className={styles.passwordVisibility} onClick={togglePasswordVisiblity}/>
-              <hr />
+            <div style={{width: "270px"}}>
+              <div className={styles.input_container}>
+                <FontAwesomeIcon icon={faUser} className={styles.icon} />
+                  <input type="text" name="username" value={data.username} onChange={handleChange} className={styles.input} required/>
+                  <label htmlFor="username">Username</label>
+              </div>
+              <div className={styles.input_container}>
+                <FontAwesomeIcon icon={faLock} className={styles.icon} />
+                <input type={showPassword ? "text" : "password"} name="password" value={data.password} onChange={handleChange} className={styles.input} required/>
+                <label htmlFor="password">Password</label>
+                <FontAwesomeIcon icon={showPassword ? faEyeSlash: faEye} className={styles.passwordVisibility} onClick={togglePasswordVisiblity}/>
+              </div>
             </div>
             {error && <div className={styles.error_msg}>{error}</div>}
             <button type="submit" className={styles.green_btn}>Log in</button>
-            <a href="/login">Forgot your password ?</a>
+            <a href="/password_forgotten">Forgot your password ?</a>
           </form>
         </div>
         <div className={styles.right}>

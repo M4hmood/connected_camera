@@ -5,6 +5,7 @@ import Signup from './components/signup/index';
 import ProtectedRoute from './ProtectedRoute';
 import Home from './components/home/home';
 import Dashboard from './components/dashboard/dashboard';
+import NotFound from './components/notFound/index';
 
 const getAccessToken = () => {
     return localStorage.getItem("token");
@@ -45,7 +46,7 @@ const router = createBrowserRouter(
         },
         {
             path: '*',
-            element: <p>404 Error - Nothing here...</p>
+            element: <NotFound />
         }
     ]
 );

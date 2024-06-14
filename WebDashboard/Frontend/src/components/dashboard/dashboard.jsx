@@ -18,7 +18,7 @@ export default function Dashboard() {
         <div className='left'>
           <div className='temperature_container'>
               <Temperature />
-              <h2 style={{'font-size': '30px'}}>temperature</h2>
+              <h2 style={{'font-size': '30px'}}>Temperature</h2>
           </div>
           <div className='humidity_container'>
             <Humidity />

@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from './styles.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 export default function Signup() {
   const [data, setData] = useState({
@@ -30,6 +28,12 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      if(data.password !== document.getElementById('confirmPassword').value) {
+        setError("Passwords do not match");
+        document.getElementById('confirmPassword').style["border-bottom"] = "2px solid red";
+        document.getElementById('password').style["border-bottom"] = "2px solid red";
+        return;
+      }
       const url = "http://localhost:3000/api/auth/signup";
       const { data: res } = await axios.post(url, data);
       navigate("/login");
@@ -39,12 +43,6 @@ export default function Signup() {
         setError(error.response.data.message);
       }
     }
-  };
-
-  const [showPassword, setShowPassword] = useState(false);
-
-  const togglePasswordVisiblity = () => {
-    setShowPassword(!showPassword);
   };
 
   return (
@@ -61,19 +59,32 @@ export default function Signup() {
         <div className={styles.right}>
           <form className={styles.form_container} onSubmit={handleSubmit}>
             <h1>Create an Account</h1>
-            <input type="text" placeholder="First Name" name="firstName" value={data.firstName} onChange={handleChange} className={styles.input} required/>
-            <hr />
-            <input type="text" placeholder="Last Name" name="lastName" value={data.lastName} onChange={handleChange} className={styles.input} required/>
-            <hr />
-            <input type="text" placeholder="Username" name="username" value={data.username} onChange={handleChange} className={styles.input} required/>
-            <hr />
-            <input type="email" placeholder="Email" name="email" value={data.email} onChange={handleChange} className={styles.input} required/>
-            <hr />
-            <input type="password" placeholder="Password" name="password" value={data.password} onChange={handleChange} className={styles.input} required/>
-            <FontAwesomeIcon icon={showPassword ? faEyeSlash: faEye} className={styles.passwordVisibility} onClick={togglePasswordVisiblity}/>
-            <hr />
+            <div className={styles.input_container}>
+              <input type="text" id='firstName' name="firstName" value={data.firstName} onChange={handleChange} className={styles.input} required/>
+              <label htmlFor="firstName">First Name</label>
+            </div>
+            <div className={styles.input_container}>
+              <input type="text" id='lastName' name="lastName" value={data.lastName} onChange={handleChange} className={styles.input} required/>
+              <label htmlFor="lastName">Last Name</label>
+            </div>
+            <div className={styles.input_container}>
+              <input type="text" id='username' name="username" value={data.username} onChange={handleChange} className={styles.input} required/>
+              <label htmlFor="username">Username</label>
+            </div>
+            <div className={styles.input_container}>
+              <input type="email" id='email' name="email" value={data.email} onChange={handleChange} className={styles.input} required/>
+              <label htmlFor="email">Email</label>
+            </div>
+            <div className={styles.input_container}>
+              <input type="password" id='password' name="password" value={data.password} onChange={handleChange} className={styles.input} required/>
+              <label htmlFor="password">Password</label>
+            </div>
+            <div className={styles.input_container}>
+              <input type="password" id='confirmPassword' className={styles.input} required/>
+              <label htmlFor="confirmPassword">Confirm password</label>
+            </div>
             <input type="date" placeholder="Birthdate" name="birthdate" value={data.birthdate} onChange={handleChange} className={styles.input} required/>
-            <hr />
+
             <div className={styles.gender}>
                 <label htmlFor="male"><input id="male" name="gender" type="radio" value="male" onChange={handleChange} /> Male</label>
                 <label htmlFor="female"><input id="female" name="gender" type="radio" value="female" onChange={handleChange} /> Female</label>

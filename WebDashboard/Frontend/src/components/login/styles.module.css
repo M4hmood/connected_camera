@@ -80,27 +80,47 @@ p {
     width: 200px;
     padding: 15px;
     margin: 5px 5px;
+    margin-left: 10px;
     font-size: 14px;
     background: none;
+    border-bottom: 1px solid blanchedalmond;
+    padding: .5rem 0;
+    font-size: 1rem;
+    color: azure;
+}
+
+.input_container {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.input_container label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0.5rem 0;
+    margin-left: 45px;
+    font-size: 1rem;
+    color: #9098a9;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.input_container input:valid + label,
+.input_container input:focus + label {
+    top: -1rem;
+    font-size: 0.8rem;
     color: blanchedalmond;
 }
 
-.login_container .input[name="password"] {
-    width: 155px;
-}
 
-hr {
-    margin-left: 50px;
-    width: 70%;
-    margin-top: -5px;
-}
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     -webkit-backgrouhnd-clip: text;
-    -webkit-text-fill-color: blanchedalmond;
+    -webkit-text-fill-color: azure;
     transition: background-color 5000s ease-in-out 0s;
     box-shadow: inset 0 0 20px 20px #23232300;
 }
@@ -145,7 +165,6 @@ button:hover {
 
 .passwordVisibility {
     color: blanchedalmond;
-    margin-right: 30px;
 }
 
 .brandIcon {

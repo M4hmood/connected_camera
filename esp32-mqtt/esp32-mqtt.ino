@@ -18,7 +18,7 @@ const char* MQTT_TOPIC3 = "flame";
 const char* MQTT_TOPIC4 = "fluid";
 const char* MQTT_TOPIC5 = "motion";
 
-// DHT22 Sensor
+// DHT11 Sensor
 #define DHT_PIN 15
 #define DHT_TYPE DHT11
 DHT dht(DHT_PIN, DHT_TYPE);
