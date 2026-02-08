@@ -1,0 +1,9 @@
+POST http://localhost:3001/api/auth/login 
+Content-type: application/json
+
+{
+    "username": "M4hmoud",
+    "password": "Boumaiza03?"
+}
+
+GET http://127.0.0.1:3000/

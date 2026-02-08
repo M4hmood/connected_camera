@@ -1,0 +1,54 @@
+import React from 'react';
+import { createBrowserRouter } from 'react-router-dom';
+import Login from './components/login/index';
+import Signup from './components/signup/index';
+import ProtectedRoute from './ProtectedRoute';
+import Home from './components/home/index';
+import Dashboard from './components/dashboard/index';
+import NotFound from './components/notFound/index';
+
+const getAccessToken = () => {
+    return localStorage.getItem("token");
+}
+
+const isAuthenticated = () => {
+    return !!getAccessToken();
+}
+
+const router = createBrowserRouter(
+    [
+        {
+            path: '/login',
+            element: <Login />,
+            index: true
+        },
+        {
+            path: '/signup',
+            element: <Signup />,
+            index: true
+        },
+        {
+            element: <ProtectedRoute isAuthenticated={isAuthenticated()} />,
+            children: [
+            {
+                path: '/', 
+                element: <Home />
+            },
+            {
+                path: '/home', 
+                element: <Home />
+            },
+            {
+                path: '/dashboard', 
+                element: <Dashboard />
+            }            
+            ]
+        },
+        {
+            path: '*',
+            element: <NotFound />
+        }
+    ]
+);
+
+export default router;

@@ -1,0 +1,14 @@
+.footer_container {
+    flex: 1;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+}
+
+.footer_container p {
+    color: black;
+}
+
+#icon {
+    font-size: 15px;;
+}

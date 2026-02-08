@@ -1,0 +1,20 @@
+.webCam_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+  
+.canvas_container {
+    position: absolute;
+}
+
+.webCam_container h2 {
+    position: absolute;
+    color: blue;
+}
+
+video {
+    border-radius: 20px;
+}
+  
