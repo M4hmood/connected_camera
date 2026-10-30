@@ -10,8 +10,8 @@ const char* WIFI_PASSWORD = "trypassword";
 // MQTT Server Parameters
 const char* MQTT_CLIENT_ID = "ESP32Client";
 const char* MQTT_BROKER = "3efe6d8d8deb46a79cf3fced831f468b.s1.eu.hivemq.cloud";
-const char* MQTT_USER = "M4hmoud";
-const char* MQTT_PASSWORD = "Boumaiza03";
+const char* MQTT_USER = "USERNAME";
+const char* MQTT_PASSWORD = "PASSWORD";
 const char* MQTT_TOPIC1 = "temperature";
 const char* MQTT_TOPIC2 = "humidity";
 const char* MQTT_TOPIC3 = "flame";
