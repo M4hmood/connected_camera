@@ -10,8 +10,8 @@ const Motion = () => {
         const brokerUrl = "wss://3efe6d8d8deb46a79cf3fced831f468b.s1.eu.hivemq.cloud:8884/mqtt";
         const options = {
             clientId: `mqttjs_${Math.random().toString(16).substr(2, 8)}`, //unique client ID
-            username: 'M4hmoud',
-            password: 'Boumaiza03',
+            username: 'USERNAME',
+            password: 'PASSWORD',
         };
         const client = mqtt.connect(brokerUrl, options);
 
